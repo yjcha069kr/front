@@ -1,0 +1,88 @@
+@charset "utf-8";
+@import url(common.css); 
+
+/* typo */
+h2 {
+    font-size: 3rem;
+    color: var(--gray3);
+}
+th {
+    color: var(--gray3);
+}
+.container {
+    width: 1040px;
+    margin: auto;
+}
+
+/* breadcrumb */
+.bc {
+    display: flex;
+    justify-content: end;
+}
+.bc li:not(:last-child)::after {
+    font-family: "Font Awesome 7 Free";
+    /* content: '\f0c7'; */
+    content: '〉';
+    margin-left: 8px;
+    color: #222;
+}
+
+/* search area */
+.search_wrap {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* 방법1 - 직접 재서 계산*/
+    height: 78px;
+    padding: 0px 30px;
+    /* 방법2 -
+    box-sizing: content-box;
+    height: 38px;
+    padding: 20px 30px; */
+    background: #f4f4f4;
+    border-radius: 3px;
+}
+.search_wrap input {
+    width: 320px;
+    height: 38px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+.search_wrap button {
+    width: 54px;
+    height: 38px;
+    background: #777;
+    border-radius: 3px;
+}
+
+/* notice table area */
+.notice {
+    width: 100%;
+    border-collapse: collapse; /* bcl */
+}
+.notice tr {
+    height: 50px;
+}
+.notice td:not(:nth-child(2)) {
+    text-align: center;
+}
+.notice th {
+    border-top: 1px solid #333; /* bt */
+    border-bottom: 1px solid #333; /* bdb */
+}
+.notice td {
+    border-bottom: 1px solid #ddd;
+}
+/* 공지사항 제목에 호버 시 밑줄 */
+.notice a:hover {
+    text-decoration: underline;
+}
+
+/* pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    border: 1px solid tomato;
+    margin-top: 50px;
+}

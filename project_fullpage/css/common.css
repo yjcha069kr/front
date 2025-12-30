@@ -1,0 +1,59 @@
+@charset "utf-8"; /* @ch */
+/* 사이트 연결  https://cdnjs.com */
+/* 웹 아이콘: 폰트어썸 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css'); /* @i */
+/* 웹 폰트 */
+/* 눈누 https://noonnu.cc/ */
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+/* 구글 https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+/* reset(초기화) */
+* {
+    box-sizing: border-box; /* bx */
+}
+:root {
+    /* CSS의 변수 정의, CSS 변수는 :root에 정의한다. */
+    /* :root 선택자는 html태그를 선택한다. */
+    --main-color: #9a8b86;
+    --sub-color: #3E3A38;
+    --white-color: #fff;
+    --gray5: #555;
+    --gray3: #333;
+    --fwm: 600; /* font-weight: medium; */
+    font-size: 10px;
+}
+body,h1,h2,h3,p,ul {
+    margin: 0;
+}
+body {
+    /* font: 크기/줄간격 글꼴1,글꼴2; */
+    font: 15px/1.6 "Noto Sans KR", sans-serif;
+    /* color: var(--main-color); */
+    color: var(--gray5);
+}
+img {
+    width: 100%;
+    vertical-align: top; /* vat */
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ul {
+    list-style: none;
+    padding: 0; /* p0 */
+}
+a {
+    text-decoration: none; /* tdn, 없음 */
+    color: #333
+}
+button {
+    border: none;
+    background: transparent;
+}
+input {
+    border: none;
+}

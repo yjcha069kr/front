@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차유진</title>
+    <!-- 외부 스타일: link 태그로 css파일을 연결 -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="common.css"> -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- 타깃사이트: https://hope.hanatour.com/ -->
+    <!-- 벤치마킹(Benchmarking) -->
+    <!-- 참조사이트: 
+        https://composecoffee.com/
+        https://www.honorsville.co.kr/
+        https://www.starbucks.co.kr/index.do
+        https://www.farmhannong.com/kor/main/index.do
+        https://freehtml5.co/preview/?item=profile-free-html5-bootstrap-template-for-personal-and-vcard,-resume-websites 개인사이트
+    -->
+    <header id="header">
+        <div class="container">
+            <!-- 로고 -->
+            <!-- h1.logo>a[href=index.html] -->
+            <h1 class="logo"><a href="index.html">경남아너스빌</a></h1>
+            <!-- 내비게이션: GNB -->
+            <nav id="gnb">
+                <ul class="main">
+                    <li><a href="#">분양단지</a>
+                        <ul class="sub">
+                            <li><a href="#">분양중인 단지</a></li>
+                            <li><a href="#">분양예정 단지</a></li>
+                            <li><a href="#">분양완료 단지</a></li>
+                            <li><a href="#">연간분양계획</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">브랜드</a>
+                        <ul class="sub">
+                            <li><a href="#">브랜드 스토리</a></li>
+                            <li><a href="#">브랜드 아이덴티티</a></li>
+                            <li><a href="#">특화아이템</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">아너스빌 멤버스</a>
+                        <ul class="sub">
+                            <li><a href="#">아너스빌 소식</a></li>
+                            <li><a href="#">청약가이드</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">마이 아너스빌</a>
+                        <ul class="sub">
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">1:1 문의</a></li>
+                            <li><a href="#">A/S 문의</a></li>
+                            <li><a href="#">관심단지 관리</a></li>
+                            <li><a href="#">개인정보 변경</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="util">
+                <a href="#">SNS</a>
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div>
+        </div> <!-- .container -->
+    </header>
+
+    <!-- section(본문) area -->
+    <!-- https://composecoffee.com/         컴포즈-->
+    <!-- #div1 -->
+    <div id="sec1" class="sec page">
+        <div class="vid">
+            <video autoplay muted loop>
+                <source src="./assets/vid/2675515-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="ele-center">
+            <div class="container">
+                <h2>커피를 커피답게</h2>
+                <p>진정한 커피로, 당신을 당신답게</p>
+                <ul class="counter">
+                    <li>
+                        <span>11</span>
+                        <span>년</span>
+                        <div>함께한 시간</div>
+                    </li>
+                    <li>
+                        <span>3047</span>
+                        <span>개</span>
+                        <div>가맹점 수</div>
+                    </li>
+                    <li>
+                        <span>17,589,812</span>
+                        <span>명</span>
+                        <div>컴포저 (App 누적 가입자)</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- #sec1 -->
+
+    <!-- section2 area -->
+    <!-- https://www.honorsville.co.kr/     경남아너스빌-->
+    <div id="sec2" class="sec page">
+        <div class="container ele-center">
+            <div class="card-list ele-center">
+                <!-- card-container -->
+                <div class="card-container">
+                    <!-- card-image-wrapper -->
+                    <div class="card-image-wrapper">
+
+                        <!-- https~, http~ :절대주소 -->
+                        <img src="https://www.honorsville.co.kr/upload/temp/20255303432444.jpg"
+                            alt="충주연수 경남아너스빌 센터원 아파트 외관" class="card-image">
+                        <!-- <img src="apartment-complex.jpg" alt="충주연수 경남아너스빌 센터원 아파트 외관" class="card-image"> -->
+                    </div> <!-- .card-image-wrapper -->
+                    <!-- card-content -->
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="tag-badge">분양중</span>
+                            <span class="like-button"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">충주연수 경남아너스빌<br>센터원</h3>
+                            <div class="card-details">
+                                <p>충청북도 충주시 연수동 787-25 일원</p>
+                                <p>243세대</p>
+                            </div>
+                            <div class="card-contact">
+                                <p class="phone-number">1866-0234</p>
+                            </div> <!-- .card-contact -->
+                        </div>
+                    </div> <!-- .card-content -->
+                </div> <!-- .card-container -->
+                <div class="card-container">
+                    <!-- card-image-wrapper -->
+                    <div class="card-image-wrapper">
+                        <img src="./assets/img/20255303217270.jpg" alt="무등산 경남아너스빌 디원 외관" class="card-image">
+                        <!-- <img src="apartment-complex.jpg" alt="무등산 경남아너스빌 디원" class="card-image"> -->
+                    </div> <!-- .card-image-wrapper -->
+                    <!-- card-content -->
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="tag-badge">분양중</span>
+                            <span class="like-button"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">무등산 경남아너스빌<br>디원</h3>
+                            <div class="card-details">
+                                <p>광주광역시 동구 산수동 67-23번지 일원</p>
+                                <p>293세대</p>
+                            </div>
+                            <div class="card-contact">
+                                <p class="phone-number">062-511-1772</p>
+                            </div> <!-- .card-contact -->
+                        </div>
+                    </div> <!-- .card-content -->
+                </div> <!-- .card-container -->
+                <div class="card-container">
+                    <!-- card-image-wrapper -->
+                    <div class="card-image-wrapper">
+                        <img src="./assets/img/202511232035248.jpg" alt="클러스터용인 경남아너스빌 외관" class="card-image">
+                        <!-- <img src="apartment-complex.jpg" alt="클러스터용인 경남아너스빌 외관" class="card-image"> -->
+                    </div> <!-- .card-image-wrapper -->
+                    <!-- card-content -->
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="tag-badge">분양중</span>
+                            <span class="like-button"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">클러스터용인<br>경남아너스빌</h3>
+                            <div class="card-details">
+                                <p>경기도 용인시 처인구 양지면 양지리 713 외 50필지</p>
+                                <p>아파트 997세대</p>
+                            </div>
+                            <div class="card-contact">
+                                <p class="phone-number">1866-0234</p>
+                            </div> <!-- .card-contact -->
+                        </div>
+                    </div> <!-- .card-content -->
+                </div> <!-- .card-container -->
+            </div> <!-- .card-list -->
+        </div> <!-- .container -->
+    </div><!-- #section -->
+
+    <!-- section3 area -->
+    <!-- https://www.starbucks.co.kr/index.do      스타벅스 -->
+    <div id="sec3" class="sec page">
+        <div class="intro">
+            <h2><span>pick</span><span>your</span><span>favorite</span></h2>
+            <p><b>다양한 메뉴</b>를<br><strong>스타벅스</strong>에서 즐겨보세요</p>
+            <p>스타벅스만의 특별함을 경험할 수 있는 최상의 선택 <b>음료</b><br>
+                스타벅스 커피와 완벽한 어울림을 자랑하는 <b>푸드</b><br>
+                다양한 시도와 디자인으로 가치를 더하는 <b>상품</b><br>
+                소중한 사람에게 마음을 전하는 가장 좋은 방법 <b>스타벅스 카드</b></p>
+            <a href="https://www.starbucks.co.kr/menu/index.do">자세히 보기</a>
+        </div>
+        <div class="product">
+            <img src="./assets/img/2025_autumn_pick_img_250916.png" alt="product">
+        </div>
+    </div>
+
+    <!-- footer(푸터) area -->
+    <footer>
+        <!-- inquiry: 문의 -->
+        <div class="inquiry">
+            <div class="inner">
+                <h2>고객문의</h2>
+                <div class="con-area">
+                    <div class="tel-area">
+                        <p>더 궁금한 게 있으신가요?</p>
+                        <a href="tel:644-0901"><i class="fa-solid fa-phone"></i>1644-0901</a>
+                    </div>
+                    <div class="con-btn">
+                        <a href="#" class="faq-btn"><span>자주 묻는 질문</span></a>
+                        <a href="#" class="consult-btn"><span>1:1 문의</span></a>
+                    </div>
+                </div> <!-- con-area -->
+            </div> <!-- .inner -->
+        </div> <!-- .inquary -->
+
+        <!-- info: 정보 -->
+        <div class="info">
+            <class="inner">
+                <div class="left-info">
+                    <div class="util-box">
+                        <!-- bnb: bottom navigation bar -->
+                        <ul class="bnb">
+                            <li><a href="https://www.farmhannong.com/kor/util/privacy/list.do">개인정보처리방침</a></li>
+                        </ul>
+                        <ul class="bnb">
+                            <li><a href="https://www.farmhannong.com/kor/main/index.do">이메일무단수집거부</a></li>
+                        </ul>
+                        <ul class="bnb">
+                            <li><a href="https://www.farmhannong.com/kor/cs/direct/inquiry/write.do">1:1문의</a></li>
+                        </ul>
+                        <ul class="bnb">
+                            <li><a href="https://ethics.lg.co.kr/index.do">정도경영 신문고</a></li>
+                        </ul>
+                        <ul class="sns">
+                            <li><a href="youtube.com/channel/UCyR3G-Lcsq2yGI388SfdghQ">팜한농<img
+                                        src="./assets/img/footer_youtube_icon.png" alt="팜한농 유튜브"></a></li>
+                            <li><a href="https://www.youtube.com/@NongDam00">농담<img
+                                        src="./assets/img/footer_youtube_icon.png" alt="팜한농 유튜브"></a></li>
+                            <li><a href="https://pf.kakao.com/_KsuVxb"><img src="./assets/img/footer_kakao_icon.png"
+                                        alt="팜한농 카카오채널"></a></li>
+                            <li><a href="youtube.com/channel/UCyR3G-Lcsq2yGI388SfdghQ"><img
+                                        src="./assets/img/footer_naverblog_icon.png" alt="팜한농 블로그"></a></li>
+                        </ul>
+                    </div>
+                    <div class="com-info">
+                        <p>07320 서울특별시 영등포구 여의대로 24, FKI 타워 5~6층</p>
+                        <ul>
+                            <li>대표전화: <a href="tel:02-3159-5500">02-3159-5500</a></li>
+                            <li>팩스: <a href="tel:02-3159-5700">02-3159-5700</a></li>
+                            <li>고객상담센터: <a href="tel:1644-0901">1644-0901</a></li>
+                        </ul>
+                    </div>
+                    <p>&copy; COPYRIGHT 2025 FarmHannong. ALL RIGHTS RESERVED.</p>
+                </div>
+                <div class="fs">관련사이트 열기</div>
+        </div> <!-- .inner -->
+        </div> <!-- .info -->
+    </footer>
+
+    <!-- 인디케이터 -->
+    <ul class="pager">
+    </ul>
+
+    <script src="js/fullpage.js"></script>
+</body>
+
+</html>

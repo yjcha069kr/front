@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* typo */
+footer {
+    /* function(arguments) */
+    /* 함수(인자) */
+    color: var(--gray5);
+    
+}
+footer a {
+    color: var(--white-color);
+}
+footer .inquiry h2 {
+    color: var(--gray3);
+    font-size: 50px;
+}
+footer .inquiry .tel-area p {
+    font-size: 26px;
+    font-weight: 100;
+}
+footer .inquiry .tel-area a {
+    color: var(--gray3);
+    font-size: 50px;
+    font-weight: 700;
+}
+footer .inquiry .con-btn a {
+    font-size: 20px;
+}
+
+/* inquiry: 문의 */
+footer .inquiry {
+    /* 배경이미지 높이: 196px 
+       + 컨텐츠 높이: 110px */
+    height: 426px;
+    padding-top: 120px;
+    background: #fff url(../assets/img/footer_image.png) no-repeat 0 100%;
+}
+footer .inquiry .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 1280px;
+    margin: auto;
+}
+footer .inquiry .con-area {
+    display: flex;
+    justify-content: space-between;
+    width: 960px;
+}
+
+/* faq: 자주 묻는 질문 */
+footer .inquiry .faq-btn {
+    background: #54a922;
+    /* padding: 35px 48px;  눈대중으로 */
+    /* 정확하게 하려면 */
+    display: inline-block;
+    width: 275px;
+    text-align: center;
+    padding: 35px 0;
+    margin-right: 12px;
+}
+footer .inquiry .faq-btn span {
+    /* background: 색 url() 반복 x위치 y위치/크기 */
+    background: url(../assets/img/icon_main_inquiry_01.png) no-repeat 0 0/contain;   /* 🟡=🟠 */
+    padding-left: 67px;
+}
+/* consult: 1:1 문의*/
+footer .inquiry .consult-btn {
+    background: #7b7b7b;
+    /* padding: 35px 72px;  눈대중으로 */
+    /* 정확하게 하려면 */
+    display: inline-block;
+    width: 275px;
+    text-align: center;
+    padding: 35px 0;
+
+}
+footer .inquiry .consult-btn span {
+    background: url(../assets/img/icon_main_inquiry_02.png) no-repeat;
+    background-size: contain;   /* 🟠=🟡 size가 더 밑에 와야됨. */
+    padding-left: 57px;
+}
+
+/* info: 정보 */
+footer .info {
+    background: #222 url(../assets/img/logo.png) no-repeat 80px 70px;
+    /* 기본값은 background-origin: padding-box; */
+    /* background-origin: content-box; */
+    padding: 50px 250px;
+}
+footer .info .inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    /* margin-left: 250px; */
+}
+footer .util-box {
+    display: flex;
+}
+footer .left-info ul {
+    display: flex;
+}
+
+footer .sns li:nth-of-type(1) img, footer .sns li:nth-of-type(2) img {
+    width: 29px;
+    height: 20px;
+}
+footer .sns li:nth-of-type(3) img {
+    width: 23px;
+    height: 24px;
+}
+footer .sns li:nth-of-type(4) img {
+    width: 28px;
+    height: 25px;
+}

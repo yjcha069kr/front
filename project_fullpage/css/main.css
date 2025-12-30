@@ -1,0 +1,303 @@
+@charset "utf-8"; /* @ch */
+@import url(common.css); /* @i */
+@import url(header.css);
+@import url(footer.css);
+
+/* typo */
+/* section1 area */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+#sec1 {
+    color: var(--white-color);
+}
+
+#sec1 h2 {
+    font-size: 60px;
+}
+#sec1 p {
+    font-size: 24px;
+}
+#sec1 span:first-of-type {
+    font-size: 40px;
+}
+#sec1 span:last-of-type {
+    font-size: 17px;
+}
+#sec1 .counter div {
+    /* 부모 요소(#sec1)에서 지정한 글자색보다 자식 요소에 지정한 속성이 우선 적용된다. */
+    color: var(--sub-color);
+}
+
+/* section2 area */
+.card-title {
+    font-size: 22px;
+    color: #333;
+    line-height: 27px;
+}
+
+.phone-number {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px; /* fz24 */
+    color: #0f2244;
+    font-weight: bold; /* fwb */
+}
+
+
+/* section3 area */
+#sec3 .intro {
+    color: var(--white-color);
+}
+#sec3 .intro a {
+    color: var(--white-color);
+}
+#sec3 .intro h2 {
+    font-weight: var(--fwm);
+    /* 단어별로 첫 글자를 대문자로 */
+    text-transform: capitalize; /* ttc */
+    /* 모두 소문자 */
+    text-transform: capitalize; /* ttl */
+    /* 모두 대문자 */
+    text-transform: uppercase; /* tt */
+    line-height: 1;
+}
+#sec3 .intro h2 span:nth-of-type(1) {
+    font-size: 100px;
+    letter-spacing: 7px;
+}
+#sec3 .intro h2 span:nth-of-type(2) {
+    font-size: 80px;
+    letter-spacing: 8px; /* ls */
+}
+#sec3 .intro h2 span:nth-of-type(3) {
+    font-size: 45px;
+    letter-spacing: 5px;
+}
+#sec3 .intro p:first-of-type {
+    font-size: 28px;
+    line-height: 1;
+}
+#sec3 .intro p:first-of-type b {
+    font-weight: var(--fwm);
+}
+#sec3 .intro p:first-of-type strong {
+    font-weight: var(--fwm);
+}
+
+.card-details p {
+    /* p는 위아래 기본 마진이 있다. 폰트 크기의 1em */
+    margin: 0;
+}
+
+/* header */
+/* section */
+/* section common(공통) */
+.sec {
+    position: relative;
+    /* vh: viewport height */
+    height: 100vh;
+}
+.ele-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* section1 area */
+/* #sec1 * {
+    outline: 1px solid lightgreen;
+} */
+#sec1 {
+    background-color: olivedrab;
+}
+#sec1 .vid {
+    position: absolute; /* poa */
+    width: 100%;
+    height: 100%;
+    /* 박스 크기를 벋어나는 콘텐츠(비디오) 영역을 숨김 */
+    /* overflow: hidden; */
+}
+#sec1 .container {
+    /* 너비가 100% 이지만, 최대 크기가 1330px */
+    width: 100%; /* w100p */
+    max-width: 1330px; /* maw1330 */
+    /* 인라인 요소(텍스트 포함) 가로 정렬 */
+    text-align: center; /* tac */
+}
+#sec1 .container p {
+    margin: 20px 0 100px; /* m40-0-120 */
+}
+#sec1 .counter {
+    display: flex; /* df */
+    justify-content: center;
+}
+#sec1 .counter div {
+    width: 307px;
+    /* height와 line-height가 같으면 텍스트가 수직 중앙 배치된다. 단, 한 줄 텍스트일때만 가능 */
+    height: 44px;
+    line-height: 44px; /* lh44px */
+    background-color: rgba(255, 217, 0, .6);
+    border-radius: 20px; /* bdrr */
+    margin: 10px;
+}
+
+/* section2 area */
+#sec2 {
+    /* background-image: url(), url(), ...   앞에 쓴게 위로 올라감 */
+    background: url(../assets/img/bg_percel.jpg) no-repeat 50%/1180px 351px, url(../assets/img/bg_section02.jpg) no-repeat 50%/cover;
+}
+
+#sec2 .card-list {
+    display: flex; /* df */
+    gap: 20px; /* g20 */
+}
+
+/* card-container */
+/* 배경색: bgc */
+.card-container {
+    width: 340px;
+    background-color: #DAEBF3;
+    /* overflow: hidden; */
+    /* margin: 20px; */
+}
+
+.card-image-wrapper {
+    overflow: hidden; /* o */
+}
+.card-image-wrapper img {
+    transition: 0.3s; /* trs, 0.3초 */
+}
+.card-image-wrapper:hover img {
+    /* transform: scale(너비, 높이), 기본값 1 */
+    transform: scale(1.2, 1.2); /* trf:s */
+}
+
+.card-content {
+    /* 마진 겹침 해결!
+        -> 마진이 부모 바깥으로 지정되는 것을 방지
+     */
+    display: flow-root;
+}
+
+/* 배지+좋아요 */
+.card-header {
+    padding-left: 45px; /* pl45 */
+}
+
+.card-header span {
+    /* 인라인 요소를 위로 맞춤 */
+    vertical-align: top; /* vat */
+}
+
+.tag-badge {
+    display: inline-block; /* dib */
+    width: 70px; /* w70 */
+    height: 38px; /* h38 */
+    line-height: 38px; /* lh38px */
+    text-align: center; /* tac */
+    background-color: #0f2244; /* bgc */
+    color: #fff; /* c */
+}
+
+/* 좋아요 하트 */
+.like-button {
+    /* 요소의 크기는 지정하면서 줄은 바뀌지 않는다. */
+    display: inline-block; /* dib */
+    width: 55px; /* w55 */
+    height: 55px; /* h55 */
+    line-height: 55px; /* 줄간격, lh55px */
+    text-align: center; /* 텍스트 좌우 정렬, tac */
+    /* padding: 16px 15px 24px; */
+    border-radius: 50%; /* bdrs50p */
+    margin-top: 20px;
+    margin-left: 145px;
+    background-color: #B1B4B3; /* bgc */
+}
+.like-button i {
+    color: #fff; /* 글자 색, c */
+    font-size: 20px; /* 글자 크기, fz20 */
+}
+
+/* 카드 UI 정보 */
+.card-body {
+    margin: 0 45px 120px; /* m0-45-120 */
+}
+
+/* section3 area */
+#sec3 {
+    /* 
+    배경이미지 + 
+    패럴랙스 스크롤링(Parallax Scrolling)
+        - 웹사이트나 게임에서 배경 레이어는 느리게, 전경 레이어는 빠르게 움직여서 입체감, 깊이감 주는 디자인 기법  
+    */
+    background-attachment: fixed; /* bga */
+    background: url(../assets/img/2025_autumn_pick_bg_250916.jpg) no-repeat 50%/cover fixed;
+}
+#sec3 .intro {
+    position: absolute;
+    left: 400px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 520px;
+    text-align: right; /* tar */
+}
+#sec3 .intro h2 span {
+    display: block;
+}
+#sec3 .intro p:first-of-type {
+    margin: 48px 0 16px; /* m48-0-16 */
+}
+#sec3 .intro a {
+    display: inline-block;
+    border: 2px solid var(--white-color); /* bd */
+    border-radius: 5px; /* bdrr */
+    margin-top: 28px;
+    padding: 6px 24px;
+}
+#sec3 .intro a:hover {
+    background: var(--white-color);
+    color: #222;
+    text-decoration: underline;
+    transition: 0.7s; /* trs, 전환 */
+}
+#sec3 .product {
+    position: absolute;
+    left: 890px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 880px;
+    height: 550px;
+}
+
+/* 풀페이지 */
+/* .page {
+    height: 100vh;
+}
+ */
+/* .footer {
+    height: 300px;
+} */
+
+/* 오른쪽 인디케이터(페이저) */
+.pager {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.pager li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 16px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pager li.active {
+    background: #fff;
+    transform: scale(1.4);
+}

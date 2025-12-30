@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나투어: 꿈꾸는대로, 펼쳐진다.</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <!-- 타깃사이트: https://hope.hanatour.com/ -->
+    <!-- 참조사이트: https://composecoffee.com/index.php?mid=index&act=dispMemberLoginForm -->
+
+    <!-- login page: login.html -->
+    <div class="login_container">
+        <div class="login_box">
+            <a href="index.html" class="closed_btn"><i class="fa-solid fa-xmark"></i></a>
+            <div class="login_inner">
+                <h1>LOGIN</h1>
+                <form action="login.jsp" method="post">
+                    <div class="login_group">
+                        <label for="uid"><i class="fa-solid fa-user"></i></label>
+                        <input type="text" name="uid" id="uid" placeholder="아이디" required>
+                    </div>
+                    <div class="login_group">
+                        <label for="upw"><i class="fa-solid fa-lock"></i></label>
+                        <input type="password" name="upw" id="upw" placeholder="비밀번호" required>
+                    </div>
+                    <div class="options">
+                        <input type="checkbox" name="options" id="options" value="Y">
+                        <label for="options">로그인 유지</label>
+                    </div>
+                    <div class="login_btn">
+                        <button type="submit">로그인</button>
+                    </div>
+                </form>
+                <div class="links">
+                    <a href="/">회원가입</a>
+                    <a href="/">ID/PW찾기</a>
+                    <a href="/">인증메일 재발송</a>
+                </div>
+            </div><!-- .login_inner -->
+        </div><!-- .login_box -->
+    </div><!-- .login_container -->
+</body>
+</html>

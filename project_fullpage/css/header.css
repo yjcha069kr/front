@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/* 헤더 */
+#header {
+    /* 포지션이 static인 요소보다 위에 배치 */
+    /* 포지션이 static이 아닌 요소들은 z-index의 숫자가 클수록 위로 배치 */
+    /* fixed 또는 absolute는 가로 크기가 요소 크기와 같아진다. */
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background: #0f2244;
+    overflow: hidden;
+}
+#header::after {
+    content: "";
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 0;
+    background: #fff;
+    transition: 0.5s;
+}
+
+#header:hover::after {
+    height: 200px;
+}
+
+#header a {
+    color: #fff;
+}
+#header .container {
+    position: relative;
+    padding: 0 50px;
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 로고 */
+/* 글로벌 내비게이션바(GNB) */
+#gnb {
+    align-self: flex-start;
+    position: absolute;
+    left: 50%;
+    top: 33px;
+    transform: translateX(-50%);
+    /* background: lightgreen; */
+}
+
+/* 1depth: Main Menu */
+#header .main {
+    width: 600px;
+    display: flex;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+#header .main li {
+    width: 150px;
+}
+
+/* 메인 메뉴 하단 바 */
+#header .main > li > a {
+    display: inline-block;
+}
+
+#header .main > li > a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #bbb;
+    /* margin: auto; */
+    /* border-bottom: 3px solid red; */
+    /* transform: scaleX(0); */
+    transition: 0.3s;
+}
+#header .main li a:hover::after {
+    /* transform: scaleX(1); */
+    width: 100%;
+}
+#header .main a:hover {
+    color: #bbb;
+}
+
+/* 2depth: Sub Menu */
+#header .sub {
+    font-size: 1.6rem;
+    line-height: 2;
+    font-weight: 400;
+    margin-top: 45px;
+    background: #fff;
+}
+/* a태그 글자색은 반드시 a태그에 직접 지정한다. */
+#header .sub a {
+    color: #333;
+}
+/* SNS,로그인,회원가입 */
