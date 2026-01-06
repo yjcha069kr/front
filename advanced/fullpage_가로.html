@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            /* overflow-y: hidden; */
+        }
+
+        .horizontal-wrap {
+            display: flex;
+            /* width: 500vw; */
+            /* height: 100vh; */
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .page1 {
+            background: #ff6b6b;
+        }
+
+        .page2 {
+            background: #4d96ff;
+        }
+
+        .page3 {
+            background: #6bcf63;
+        }
+
+        .page4 {
+            background: #ffc93c;
+        }
+        .page5 {
+            background: #19ffc6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="horizontal-wrap">
+        <section class="page page1">Page 1</section>
+        <section class="page page2">Page 2</section>
+        <section class="page page3">Page 3</section>
+        <section class="page page4">Page 4</section>
+        <section class="page page5">Page 5</section>
+        <section class="page page6">Page 6</section>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = document.querySelectorAll('.page').length;
+        let isScrolling = false; // ⭐ 추가
+
+        window.addEventListener("wheel", function (e) {
+            e.preventDefault();
+
+            // ⭐ 스크롤 중이면 무시
+            if (isScrolling) return;
+            isScrolling = true;
+
+            if (e.deltaY > 0) {
+                currentPage = Math.min(currentPage + 1, totalPages - 1);
+            } else {
+                currentPage = Math.max(currentPage - 1, 0);
+            }
+
+            window.scrollTo({
+                left: currentPage * window.innerWidth,
+                behavior: "smooth"
+            });
+
+            // ⭐ 애니메이션 종료 후 다시 허용
+            setTimeout(() => {
+                isScrolling = false;
+            }, 600); // smooth 시간보다 약간 크게
+        }, { passive: false });
+    </script>
+
+</body>
+
+</html>
