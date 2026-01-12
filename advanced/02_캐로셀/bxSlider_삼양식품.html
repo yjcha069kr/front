@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼양식품</title>
+    <!-- jquery.bxslider.min.css 라이브러리 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <!-- 제이쿼리 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- bxslider 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        /* .bxslider의 조상 div */
+        .bx-wrapper {
+            background: none;
+            border:none;
+            box-shadow: none;
+        }
+
+        /* prev/next 버튼 공통 */
+        .bx-wrapper .bx-controls-dirction a {
+            width: 18px;
+            height: 30px;
+        }
+        /* prev 버튼 */
+        .bx-wrapper .bx-prev {
+            background: url('assets/btn_slide_prev_new.png') no-repeat center/contain !important;
+            left: calc(50% - 620px);
+        }
+        /* next 버튼 */
+        .bx-wrapper .bx-next {
+            background: url('assets/btn_slide_next_new.png') no-repeat center/contain !important;
+            right: calc(50% - 620px);
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="bxslider">
+        <div><img src="assets/20231214092231893897.jpg" alt="이미지1"></div>
+        <div><img src="assets/20231214092256522898.jpg" alt="이미지2"></div>
+        <div><img src="assets/20231214092418147899.jpg" alt="이미지3"></div>
+        <div><img src="assets/20231214092606468902.jpg" alt="이미지4"></div>
+        <div><img src="assets/20240116133051904008.jpg" alt="이미지5"></div>
+    </div>
+
+    <script>
+        $('.bxslider').bxSlider({
+            mode: 'fade', // 기본값 'horizontal', 'vertical', 'fade'
+            auto: true, // 자동 슬라이드
+            speed: 800, // 기본값 500, 전환 속도, ms
+            //pause: 1000, // 기본값 4000, 자동 슬라이드 간격, ms
+            //autoControls: true, // 시작/일시정지 버튼
+            pager: false, // 기본값 true, 인디케이터
+            //controls: false, // 기본값 true 좌우 버튼
+            stopAutoOnClick: true, // 버튼 클릭시 자동 슬라이드 일시정지
+            autoHover: true, // 이미지에 호버 시 자동 슬라이드 일시정지
+            //slideWidth: 1200 // 슬라이드 가로 크기
+        });
+    </script>
+</body>
+
+</html>
