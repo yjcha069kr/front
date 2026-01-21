@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery 탭 메뉴</title>
+<style>
+    /* style.css */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.tab-container {
+    width: 400px;
+    margin: auto;
+}
+
+/* 탭 버튼 스타일 */
+.tab-buttons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+}
+
+.tab-buttons li {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #f4f4f4;
+    margin-right: 5px;
+    transition: background 0.3s;
+}
+
+.tab-buttons li.active {
+    background-color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+
+/* 탭 내용 스타일 */
+.tab-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.tab-panel {
+    display: none; /* 기본 숨김 */
+}
+
+.tab-panel.active {
+    display: block; /* 활성화된 탭 표시 */
+}
+
+
+</style>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+<div class="tab-container">
+    <!-- 탭 버튼 -->
+    <ul class="tab-buttons">
+        <!-- data-* : 사용자 정의 속성 -->
+        <li class="active" data-tab="tab1">탭 1</li>
+        <li data-tab="tab2">탭 2</li>
+        <li data-tab="tab3">탭 3</li>
+    </ul>
+
+    <!-- 탭 내용 -->
+    <div class="tab-content">
+        <div id="tab1" class="tab-panel active">
+            <p>탭 1 내용입니다.</p>
+        </div>
+        <div id="tab2" class="tab-panel">
+            <p>탭 2 내용입니다.</p>
+        </div>
+        <div id="tab3" class="tab-panel">
+            <p>탭 3 내용입니다.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주항공 - slick</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <style>
+        /* 초기화 */
+        body {
+            background: #b59696;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        /* 슬라이드 아이템 개별 박스 */
+        .slider {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .slider-item {
+            position: relative;
+            /* 텍스트 배치의 기준점 */
+        }
+
+        .slider-item img {
+            width: 320px;
+            height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 텍스트 스타일 */
+        h3 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 30px;
+            font-size: 20px;
+        }
+
+        .white-color {
+            color: #fff;
+        }
+
+        /* 1. 기본 인디케이터 위치 및 스타일 초기화 */
+        .slick-dots {
+            bottom: -40px;
+        }
+
+        /* 점 사이 간격 */
+        .slick-dots li {
+            margin: 0 2px;
+            width: auto;
+            height: auto;
+        }
+
+        /* 2. 점(버튼) 모양 디자인 */
+        .slick-dots li button {
+            width: 5px;
+            /* 기본 점 크기 */
+            height: 5px;
+            background: #ccc;
+            /* 비활성화 색상 (회색) */
+            border-radius: 4px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 0;
+            /* 기본 숫자 제거 */
+            transition: all 0.3s;
+            /* 부드러운 전환 */
+        }
+
+        /* 3. 활성화된(Active) 점 스타일 - 오렌지색 길쭉한 모양 */
+        .slick-dots li.slick-active button {
+            width: 12px;
+            /* 가로로 길게 */
+            background: #ff5000;
+            /* 제주항공 오렌지색 */
+        }
+
+        /* 기본 슬릭 폰트 아이콘 제거 (중요) */
+        .slick-dots li button:before {
+            display: none;
+        }
+
+        /* 기본 화살표 폰트 아이콘 제거 */
+        .slick-prev:before,
+        .slick-next:before {
+            display: none;
+        }
+
+        /* 커스텀 화살표 공통 스타일 */
+        .custom-arrow {
+            z-index: 10;
+            width: 52px;
+            /* 이미지 크기에 맞게 조절 */
+            height: 52px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .custom-arrow img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* 위치 미세 조정 */
+        .slick-prev {
+            left: -26px;
+            transform: rotate(180deg) translateY(50%);
+            /* 이미지 밖으로 얼마나 뺄지 결정 */
+        }
+
+        .slick-next {
+            right: -16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slider-item">
+            <img src="assets/20250731072421430.jpg" alt="센토사 FUNPASS">
+            <h3>센토사 FUNPASS<br>제휴 20% 할인</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20250808095154163.png" alt="카카오페이">
+            <h3>카카오페이<br>최대 30,000원 할인</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20250910075905370.jpg" alt="싱가포르 센토사">
+            <h3>싱가포르 센토사<br>무료 혜택</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20250910080916592.jpg" alt="싱가포르 Aloft 호텔">
+            <h3>싱가포르 Aloft 호텔<br>최대 10% 할인</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20251030104624147.jpg" alt="후쿠오카 호텔">
+            <h3 class="white-color">후쿠오카 호텔<br>크로스라이프 15% 할인</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20251211095753068.jpg" alt="함께 여행하면">
+            <h3>함께 여행하면<br>혜택이 N배!</h3>
+        </div>
+        <div class="slider-item">
+            <img src="assets/20251219143727596.png" alt="토스퀵계좌이체">
+            <h3 class="white-color">토스퀵계좌이체<br>무제한 0.3% 즉시</h3>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $(".slider").slick({
+                slidesToShow: 3,// 한 화면에 보이는 슬라이드 수
+                slidesToScroll: 3,// 이동 시 넘기는 슬라이드 수
+                autoplay: true,// 자동 재생
+                //autoplaySpeed: 3000,// 자동 재생 간격
+                arrows: true,// 좌우 화살표
+                prevArrow: '<button type="button" class="slick-prev custom-arrow"><img src="assets/arrow_carousel_prev_03.png" alt="이전"></button>',
+                nextArrow: '<button type="button" class="slick-next custom-arrow"><img src="assets/arrow_carousel_prev_03.png" alt="다음"></button>',
+                dots: true,// 하단 점 네비게이션
+                //infinite: true,// 무한 루프
+                //speed: 200, // 애니메이션 속도                
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

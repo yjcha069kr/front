@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도드람 - Slick 변환</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <style>
+        body { margin: 0; }
+        .section { text-align: center; padding-top: 50px; }
+        .inner {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1540px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            position: relative;
+            margin: 50px auto;
+        }
+        .slideWrap1 { width: 1060px; }
+        .sliderWrap2 { width: 440px; }
+
+        /* 이미지 모서리 둥글게 */
+        .slick-slide img {
+            border-radius: 32px;
+            width: 100%;
+            display: block;
+        }
+
+        /* 하단 컨트롤 영역 (Slick 페이저 커스텀) */
+        .slick-dots {
+            bottom: 25px !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: auto !important;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 인디케이터 점 스타일 */
+        .slick-dots li {
+            margin: 0 4px;
+            width: auto;
+            height: auto;
+        }
+        .slick-dots li button {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        .slick-dots li button:before { display: none; } /* 기본 아이콘 제거 */
+
+        /* 활성 점 */
+        .slick-dots li.slick-active button {
+            background: #fff !important;
+            width: 24px;
+            border-radius: 12px;
+        }
+
+        /* 재생/일시정지 버튼 위치 조정 */
+        .play-toggle {
+            position: absolute;
+            bottom: 50px; /* 페이저와 높이 맞춤 */
+            left: calc(50% + 28px); /* 점들 뒤에 배치 */
+            color: #fff;
+            text-decoration: none;
+            z-index: 200;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .play-toggle .material-icons { font-size: 18px; }
+        
+        /* 슬라이더 2번 버튼 위치 미세 조정 */
+        .sliderWrap2 .play-toggle { left: calc(50% + 45px); }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h2><img src="assets/0c3d6c35bd0388d73a8ca987211f0061_35031.svg" alt="도드람몰"></h2>
+        <div class="inner">
+            <div class="slider-container slideWrap1">
+                <div class="slick-slider1">
+                    <div><img src="assets/82aecbd90fe04e4f6e9ab77bf9971edf_25206.png" alt="배너1"></div>
+                    <div><img src="assets/636df30c3aef1cd9391a65bab9dec200_87173.png" alt="배너2"></div>
+                </div>
+                <a href="#" class="play-toggle" data-slider="1"><span class="material-icons">pause</span></a>
+            </div>
+
+            <div class="slider-container sliderWrap2">
+                <div class="slick-slider2">
+                    <div><img src="assets/65180321a1d6b8c518cecd83b2d5f95b_62703.jpg" alt="배너1"></div>
+                    <div><img src="assets/154940ff7b76c7f146eb5e3c00af7757_89428.png" alt="배너2"></div>
+                    <div><img src="assets/1091334089b9e1d9e591e75602b54106_10073.png" alt="배너2"></div>
+                    <div><img src="assets/b01c2ce25e34f80d499f0488d034b00b_90109.png" alt="배너2"></div>
+                </div>
+                <a href="#" class="play-toggle" data-slider="2"><span class="material-icons">pause</span></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 슬라이더 1 설정
+            var s1 = $('.slick-slider1').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false,
+                pauseOnHover: true,
+                infinite: true
+            });
+
+            // 슬라이더 2 설정
+            var s2 = $('.slick-slider2').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false,
+                pauseOnHover: true,
+                infinite: true
+            });
+
+            // 재생/정지 통합 컨트롤
+            $('.play-toggle').on('click', function (e) {
+                e.preventDefault();
+                var targetNum = $(this).data('slider');
+                var targetSlider = (targetNum === 1) ? $('.slick-slider1') : $('.slick-slider2');
+                
+                // 현재 버튼 상태 확인을 위해 클래스나 텍스트 활용
+                var isPaused = $(this).find('.material-icons').text() === 'play_arrow';
+
+                if (isPaused) {
+                    targetSlider.slick('slickPlay');
+                    $(this).html('<span class="material-icons">pause</span>');
+                } else {
+                    targetSlider.slick('slickPause');
+                    $(this).html('<span class="material-icons">play_arrow</span>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
