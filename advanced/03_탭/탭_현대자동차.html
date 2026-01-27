@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>현대자동차</title>
+    <style>
+        .model-section {
+            text-align: center;
+        }
+        .tabs {
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 44px;
+        }
+
+        .model-section {
+            max-width: 1400px;
+            margin: 50px auto;
+        }
+
+        .tabs {
+            position: relative;
+            padding: 20px 140px;
+        }
+
+        /* 탭 버튼 */
+        .tab-menu {
+            position: absolute;
+            display: inline-block;
+            left: calc(50% + 85px);
+            margin: 20px 0;
+        }
+
+        .tab-menu .tab {
+            background: none;
+            border: none;
+            padding-right: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            color: #777;
+        }
+        .tab-menu .tab:not(:last-of-type)::after {
+            content: "|";
+            margin-left: 16px;
+        }
+
+        .tab-menu .tab.active {
+            color: #007fa8;
+            font-weight: bold;
+        }
+
+        /* 탭 내용 */
+        .tab-content {
+            display: none;
+            align-items: end;
+            margin-top: 30px;
+        }
+        .tab-content.active {
+            display: flex;
+        }
+
+        .tab-content img {
+            display: block;
+            width: 224px;
+            height: 168px;
+            margin-right: 35px;
+        }
+        .top-content .top {
+            position: relative;
+        }
+        .tab-content .top::after {
+            content: '1위';
+            position: absolute;
+            top:50px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: #007FA8;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tab-content .top img {
+            width: 576px;
+            height: 432px;
+            margin-right: 70px;
+        }
+
+        .tab-content span {
+            display: block;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+
+        .tab-content .top span {
+            position: absolute;
+            top:100px;
+            left: calc(50% + 85px);
+            font-size: 2.375rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="model-section">
+        <h2>Model</h2>
+        <p class="desc">최근 한 달 동안 고객님들이 가장 많이 구매하신 모델입니다.</p>
+
+        <div class="tabs">
+            <!-- 탭 버튼 -->
+            <div class="tab-menu">
+                <div class="inner">
+                    <button class="tab active" data-tab="all">전체</button>
+                    <button class="tab" data-tab="20s30s">2~30대</button>
+                    <button class="tab" data-tab="40s">40대</button>
+                    <button class="tab" data-tab="50s">50대</button>
+                </div>
+            </div>
+            <!-- 탭 콘텐츠 -->
+            <div class="tab-contents">
+                <div class="tab-content active" id="all">
+                    <div class="top">
+                        <img src="assets/GN09_EXT.jpg" alt="1위. 그랜저 Hybrid">
+                        <span>1위. 그랜저 Hybrid</span>
+                    </div>
+                    <div>
+                        <img src="assets/CN22_EXT.jpg" alt="2위. 아반떼">
+                        <span>2위. 아반떼</span>
+                    </div>
+                    <div>
+                        <img src="assets/FX02_EXT.jpg" alt="3위. 더 뉴 팰리세이드 Hybrid">
+                        <span>3위. 더 뉴 팰리세이드 Hybrid</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="20s30s">
+                    <div class="top">
+                        <img src="assets/CN22_EXT.jpg" alt="1위. 아반떼">
+                        <span>1위. 아반떼</span>
+                    </div>
+                    <div>
+                        <img src="assets/MX08_EXT.jpg" alt="2위. 싼타페 Hybrid">
+                        <span>2위. 싼타페 Hybrid</span>
+                    </div>
+                    <div>
+                        <img src="assets/GN09_EXT.jpg" alt="3위. 그랜저 Hybrid">
+                        <span>3위. 그랜저 Hybrid</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="40s">
+                    <div class="top">
+                        <img src="assets/GN09_EXT.jpg" alt="1위. 그랜저">
+                        <span>1위. 그랜저</span>
+                    </div>
+                    <div>
+                        <img src="assets/FX02_EXT.jpg" alt="2위. 디 올 뉴 팰리세이드 Hybrid">
+                        <span>2위. 디 올 뉴 팰리세이드 Hybrid</span>
+                    </div>
+                    <div>
+                        <img src="assets/CN22_EXT.jpg" alt="3위. 아반떼">
+                        <span>3위. 아반떼</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="50s">
+                    <div class="top">
+                        <img src="assets/GN09_EXT.jpg" alt="1위. 그랜저">
+                        <span>1위. 그랜저</span>
+                    </div>
+                    <div>
+                        <img src="assets/CN22_EXT.jpg" alt="2위. 아반떼">
+                        <span>2위. 아반떼</span>
+                    </div>
+                    <div>
+                        <img src="assets/NX17_EXT.jpg" alt="3위. 투싼">
+                        <span>3위. 투싼</span>
+                    </div>
+                </div>
+            </div><!-- //.tab-contents -->
+        </div><!-- //.tabs -->
+    </section>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+
+                // 탭 active 초기화
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // 선택된 탭 활성화
+                tab.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

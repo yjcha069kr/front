@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아코디언-제주</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        /* 초기화 */
+        * {
+            box-sizing: border-box;
+        }
+        body,ul {
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        body {
+            font: 0.938rem/1.6 "Noto Sans KR", sans-serif;
+            background: #fff;
+        }
+        /* 폰트어썸 */
+        i {
+            color: #3e3a39;
+            font-size: 1.25rem;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #ff5000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Collapsed Menu Icon: 햄버거 메뉴 -->
+        <div class="mwrap">
+            <a class="menu-btn" href="#">
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <!-- ==================== 헤더 ==================== -->
+    <header class="header">
+        <!-- ======== 헤더 상단바 ======== -->
+        <div class="top-bar">
+            <div class="container">
+                <!-- 왼쪽 메뉴 -->
+                <div class="left-menu">
+                    <a href="/sub/notice.html"><i class="fa-solid fa-bullhorn"></i> 공지사항</a>
+                    <span>|</span>
+                    <a href="/sub/ask.html"><i class="fa-regular fa-circle-question"></i> 자주 묻는 질문</a>
+                </div>
+                <!-- 오른쪽 메뉴 -->
+                <div class="right-menu">
+                    <a href="/sub/login.html"><i class="fa-regular fa-user"></i> 로그인</a>
+                    <span>|</span>
+                    <a href="/sub/guest.html"><i class="fa-solid fa-bag-shopping"></i> 비회원 예약조회</a>
+                </div>
+            </div>
+        </div>
+        <!-- ======== 메인 네비(GNB) ======== -->
+        <nav class="gnb" id="gnb">
+            <div class="container">
+                <!-- 로고 -->
+                <a href="/index.html" class="logo">
+                    <img src="/assets/jejurent.svg" alt="로고">
+                </a>
+                <!-- 햄버거 버튼 -->
+                <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- 메뉴 -->
+                <ul class="menu">
+                    <li class="mainmenu">
+                        <a href="/sub/rent.html">렌터카 예약</a>
+                    </li>
+                    <li class="mainmenu">
+                        <a href="#">차량소개</a>
+                        <ul class="submenu">
+                            <li><a href="/sub/type_small.html">경형/소형</a></li>
+                            <li><a href="/sub/type_medium.html">중형</a></li>
+                            <li><a href="/sub/type_van.html">승합</a></li>
+                            <li><a href="/sub/type_suv.html">SUV/RV</a></li>
+                            <li><a href="/sub/type_electric.html">전기</a></li>
+                        </ul>
+                    </li>
+                    <li class="mainmenu">
+                        <a href="/sub/event.html">이벤트</a>
+                    </li>
+                    <li class="mainmenu">
+                        <a href="#">이용안내</a>
+                        <ul class="submenu">
+                            <li><a href="/sub/guide_use.html">렌터카 이용 안내</a></li>
+                            <li><a href="/sub/guide_insurance.html">보험 안내</a></li>
+                            <li><a href="/sub/guide_other.html">기타 유의사항</a></li>
+                        </ul>
+                    </li>
+                    <li class="mainmenu">
+                        <a href="#">고객센터</a>
+                        <ul class="submenu">
+                            <li><a href="/sub/notice.html">공지사항</a></li>
+                            <li><a href="/sub/ask.html">자주 묻는 질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

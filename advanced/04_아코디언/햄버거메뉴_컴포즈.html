@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포즈</title>
+    <style>
+        /* reset */
+        * {box-sizing: border-box;}
+        body {background: #9fedfc;}
+
+        /* Collapsed Menu Icon: 햄버거 메뉴 */
+        .mwrap {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .mwrap.active {
+            background: #000;
+        }
+        
+        .menu-btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: block;
+            width: 20px;
+            height: 12px;
+        }
+        
+        .menu-btn span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000;
+        }
+        .menu-btn span.active {
+            background: #fff;
+        }
+
+        /* 3개의 span 바의 처음 위치 */
+        .menu-btn span:nth-of-type(1) {top: 0;}
+        .menu-btn span:nth-of-type(2) {bottom: 0;}
+
+        /* 버튼을 클릭할 때 애니메이션 */
+        /* 3bar 에서 ❌모양으로 */
+        .menu-btn.active span:nth-of-type(1) {
+            animation: active-menu-01 .75s forwards;
+        }
+
+        @keyframes active-menu-01 {
+            0% {transform: translateY(0) rotate(0);}
+            50% {transform: translateY(5px) rotate(0);}
+            100% {transform: translateY(5px) rotate(45deg);}
+        }
+
+        .menu-btn.active span:nth-of-type(2) {
+            animation: active-menu-02 .75s forwards;
+        }
+
+        @keyframes active-menu-02 {
+            0% {transform: translateY(0) rotate(0);}
+            50% {transform: translateY(-5px) rotate(0);}
+            100% {transform: translateY(-5px) rotate(-45deg);}
+        }
+
+        /* ❌모양에서 3bar로 */
+        .menu-btn span:nth-of-type(1) {
+            animation: bar-01 .75s forwards;
+        }
+
+        @keyframes bar-01 {
+            0% {transform: translateY(5px) rotate(45deg);}
+            50% {transform: translateY(5px) rotate(0);}
+            100% {transform: translateY(0) rotate(0);}
+        }
+
+        .menu-btn span:nth-of-type(2) {
+            animation: menu-02 .75s forwards;
+        }
+
+        @keyframes menu-02 {
+            0% {transform: translateY(-5px) rotate(-45deg);}
+            50% {transform: translateY(-5px) rotate(0);}
+            100% {transform: translateY(0) rotate(0);}
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="mwrap">
+        <a class="menu-btn" href="#">
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mbtn = document.querySelector('.menu-btn');
+
+            mbtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+                // mbtn.querySelectorAll('span')[0].classList.toggle('active');
+                // mbtn.querySelectorAll('span')[1].classList.toggle('active');
+                mbtn.querySelectorAll('span').forEach(span => {
+                    span.classList.toggle('active');
+                });
+                mbtn.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>아코디언 UI</title>
+    <style>
+        .accordion-item {
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* 아코디언 버튼 */
+        .accordion-title {
+            padding: 15px;
+            cursor: pointer;
+            background: #f0f0f0;
+        }
+       .accordion-title.active {
+            background: royalblue;
+            color: white;
+        }
+
+        /* 아코디언 내용 */
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h2>아코디언 UI</h2>
+
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-title">Q1. Lorem ipsum?</div>
+            <div class="accordion-content">내용 1 입니다.</div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title">Q2. dolor sit amet?</div>
+            <div class="accordion-content">내용 2 입니다.</div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title">Q3. consectetur adipiscing?</div>
+            <div class="accordion-content">내용 3 입니다.</div>
+        </div>
+    </div><!-- //.accordion -->
+
+    <script>
+        // 버튼들을 선택
+        const btns = document.querySelectorAll(".accordion-title");
+        const contents = document.querySelectorAll(".accordion-content");
+
+        // 버튼들 중에서 특정 버튼을
+        btns.forEach(item => {
+            // 클릭하면
+            item.addEventListener("click", function () {
+
+                // 버튼의 스타일 초기화
+                btns.forEach(t => t.classList.remove("active"));
+                // 열린 내용 모두 닫기
+                contents.forEach(c => c.style.display = "none");
+
+                // 클릭된 버튼 스타일 변경
+                this.classList.add("active");
+
+                // 버튼 바로 아래 형제요소
+                const content = this.nextElementSibling;
+                // 클릭한 버튼에 해당하는 내용만 보이기
+                content.style.display = "block";
+            });
+        });
+    </script>
+
+</body>
+
+</html>

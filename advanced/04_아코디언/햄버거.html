@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거메뉴</title>
+    <style>
+        /* reset */
+        * {box-sizing: border-box;}
+
+        /* Collapsed Menu Icon: 햄버거 메뉴 */
+        .menu-btn {
+            position: relative;
+            display: block;
+            width: 50px;
+            height: 44px;
+        }
+        
+        .menu-btn span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background: #000;
+        }
+
+        /* 3개의 span 바의 처음 위치 */
+        .menu-btn span:nth-of-type(1) {top: 0;}
+        .menu-btn span:nth-of-type(2) {top: 20px;}
+        .menu-btn span:nth-of-type(3) {bottom: 0;}
+
+        /* 버튼을 클릭할 때 애니메이션 */
+        /* 3bar 에서 ❌모양으로 */
+        .menu-btn.active span:nth-of-type(1) {
+            animation: active-menu-01 .75s forwards;
+        }
+
+        @keyframes active-menu-01 {
+            0% {transform: translateY(0) rotate(0);}
+            50% {transform: translateY(20px) rotate(0);}
+            100% {transform: translateY(20px) rotate(45deg);}
+        }
+
+        .menu-btn.active span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active span:nth-of-type(3) {
+            animation: active-menu-02 .75s forwards;
+        }
+
+        @keyframes active-menu-02 {
+            0% {transform: translateY(0) rotate(0);}
+            50% {transform: translateY(-20px) rotate(0);}
+            100% {transform: translateY(-20px) rotate(-45deg);}
+        }
+
+        /* ❌모양에서 3bar로 */
+        .menu-btn span:nth-of-type(1) {
+            animation: bar-01 .75s forwards;
+        }
+
+        @keyframes bar-01 {
+            0% {transform: translateY(20px) rotate(45deg);}
+            50% {transform: translateY(20px) rotate(0);}
+            100% {transform: translateY(0) rotate(0);}
+        }
+
+        .menu-btn span:nth-of-type(2) {
+            transition: .25s .25s;
+            opacity: 1;
+        }
+
+        .menu-btn span:nth-of-type(3) {
+            animation: menu-02 .75s forwards;
+        }
+
+        @keyframes menu-02 {
+            0% {transform: translateY(-20px) rotate(-45deg);}
+            50% {transform: translateY(-20px) rotate(0);}
+            100% {transform: translateY(0) rotate(0);}
+        }
+
+    </style>
+</head>
+
+<body>
+    <a class="menu-btn" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mbtn = document.querySelector('.menu-btn');
+
+            mbtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
