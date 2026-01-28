@@ -39,6 +39,74 @@
             height: 60px;
             background: #ff5000;
         }
+        /* 네이게이션 전체 */
+        header .inner {
+            position: absolute;
+            width: 80%;
+            right: 0%;
+            background: rgb(69, 92, 107);
+        }
+        
+        /* 1depth */
+        .main>li {
+            border-bottom: 1px solid #d9d9d9;
+        }
+        .main>li>a {
+            position: relative;
+            display: block;
+            padding: 16px 24px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        /* 메인메뉴 끝 +모양 */
+        .main>li>a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 39px;
+            width: 2px;
+            height: 10px;
+            background: #d9d9d9;
+            transform: translateY(-50%);
+        }
+        .main>li>a::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 35px;
+            width: 10px;
+            height: 2px;
+            background: #d9d9d9;
+            transform: translateY(-50%);
+        }
+
+        /* 2depth */
+        .sub li:not(:last-child) {
+            border-bottom: 1px solid #d9d9d9;
+        }
+        .sub li a {
+            font-size: 0.875rem;
+            color: #333;
+        }
+        .sub-wrapper {
+            display: grid;
+            /* 초기상태 높이: 0 */
+            grid-template-rows: 0fr;
+            background: #f9f9f9;
+        }
+        .sub li:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+        .sub li a {
+            display: block;
+            padding: 10px 30px;
+            font-size: 0.875rem;
+            color: #333;
+        }
+        .sub li a:hover {
+            background: #eee;
+        }
+
     </style>
 </head>
 
