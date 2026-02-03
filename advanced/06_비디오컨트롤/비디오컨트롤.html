@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Document</title>
+    <style>
+        .video-container {
+            text-align: center;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            vertical-align: middle;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button span {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video id="my-video" width="600">
+            <source src="assets/main_baemin_reset.0d972b27.mp4" type="video/mp4">
+            브라우저가 비디오 태그를 지원하지 않습니다.
+        </video>
+
+        <div class="controls">
+            <button id="btn-play">재생</button>
+            <button id="btn-stop">종료</button>
+            <button id="btn-mute">
+                <span id="mute-icon" class="material-symbols-outlined">volume_up</span>
+                <span id="mute-text">소리 끄기</span>
+            </button>
+        </div>
+
+        <script>
+            const video = document.getElementById('my-video');
+            const playBtn = document.getElementById('btn-play');
+            const stopBtn = document.getElementById('btn-stop');
+
+            // 재생 버튼 클릭 시
+            playBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playBtn.textContent = '일시정지';
+                } else {
+                    video.pause();
+                    playBtn.textContent = '재생';
+                }
+            });
+
+            // 종료 버튼 클릭 시
+            stopBtn.addEventListener('click', () => {
+                video.pause();          // 1. 일단 멈춤
+                video.currentTime = 0;  // 2. 시간을 처음(0초)으로 되돌림
+                playBtn.textContent = '재생'; // 버튼 텍스트 초기화
+            });
+
+            const muteBtn = document.getElementById('btn-mute');
+            const muteIcon = document.getElementById('mute-icon');
+            const muteText = document.getElementById('mute-text');
+
+            // 음소거 토글 로직
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+
+                if (video.muted) {
+                    // 무음 상태일 때
+                    muteIcon.textContent = 'volume_off'; // 구글 아이콘 이름
+                    muteText.textContent = '소리 켜기';
+                } else {
+                    // 소리가 날 때
+                    muteIcon.textContent = 'volume_up';  // 구글 아이콘 이름
+                    muteText.textContent = '소리 끄기';
+                }
+            });
+
+            // 비디오 종료 시 버튼 상태 초기화 (보너스)
+            video.addEventListener('ended', () => {
+                playBtn.textContent = '재생';
+            });
+        </script>
+    </div>
+</body>
+
+</html>
