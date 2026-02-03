@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>스마트 날씨 & 미세먼지 위젯</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #e0e7ff;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .weather-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: 25px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            position: relative;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #icon {
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 5px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            flex: 1;
+            outline: none;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .temp {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 5px 0;
+            color: #1e293b;
+        }
+
+        .air-quality {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            background: #f1f5f9;
+        }
+
+        .good {
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .bad {
+            color: #dc2626;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="weather-card">
+        <div class="input-group">
+            <input type="text" id="cityInput" placeholder="도시명 (서울, 부산...)">
+            <button onclick="changeCity()">검색</button>
+        </div>
+
+        <h3 id="city">로딩 중...</h3>
+        <div class="icon-box">
+            <img id="icon" src="" alt="날씨 아이콘">
+        </div>
+        <div class="temp"><span id="temp">0</span>°C</div>
+        <div id="desc" class="desc">날씨 정보</div>
+
+        <div class="air-quality">
+            미세먼지 상태: <span id="aqi">-</span>
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = '79ae71d652550debb79021ced88a8bfd';
+        let currentCity = 'Seoul';
+
+        // 핵심: 한글 지역명을 처리하여 날씨와 미세먼지를 가져오는 단일 함수
+        async function updateWeather(city) {
+            try {
+                // 1. 한글 여부 판별 및 쿼리 생성
+                const isKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(city);
+                const searchQuery = isKorean ? `${city},KR` : city;
+
+                const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${API_KEY}&lang=kr&units=metric`;
+
+                const wResponse = await fetch(weatherUrl);
+                const wData = await wResponse.json();
+
+                if (wData.cod !== 200) {
+                    alert("도시를 찾을 수 없습니다. (한글 또는 영문 도시명을 정확히 입력하세요)");
+                    return;
+                }
+
+                // 2. 화면 날씨 정보 업데이트
+                document.getElementById('city').innerText = wData.name;
+                document.getElementById('temp').innerText = wData.main.temp.toFixed(1);
+                document.getElementById('desc').innerText = wData.weather[0].description;
+                document.getElementById('icon').src = `https://openweathermap.org/img/wn/${wData.weather[0].icon}@4x.png`;
+
+                // 3. 위도/경도를 사용해 미세먼지 업데이트
+                const { lat, lon } = wData.coord;
+                updateAirQuality(lat, lon);
+
+            } catch (error) {
+                console.error("데이터 호출 오류:", error);
+            }
+        }
+
+        async function updateAirQuality(lat, lon) {
+            try {
+                const airUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+                const aResponse = await fetch(airUrl);
+                const aData = await aResponse.json();
+
+                const aqi = aData.list[0].main.aqi; // 1(좋음)~5(매우나쁨)
+                const aqiText = ["", "좋음 😊", "보통 🙂", "민감군 주의 🤨", "나쁨 😷", "매우 나쁨 🚨"];
+                const aqiClass = aqi <= 2 ? "good" : "bad";
+
+                const aqiElement = document.getElementById('aqi');
+                aqiElement.innerText = aqiText[aqi];
+                aqiElement.className = aqiClass;
+            } catch (e) {
+                document.getElementById('aqi').innerText = "정보 없음";
+            }
+        }
+
+        // 검색 실행 함수
+        function changeCity() {
+            const input = document.getElementById('cityInput');
+            const newCity = input.value.trim();
+            if (newCity) {
+                updateWeather(newCity);
+                input.value = ""; // 입력 후 칸 비우기
+            }
+        }
+
+        // 엔터키 지원
+        document.getElementById('cityInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') changeCity();
+        });
+
+        // 초기 실행 (서울)
+        updateWeather(currentCity);
+    </script>
+</body>
+
+</html>
